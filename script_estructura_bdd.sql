@@ -1,4 +1,4 @@
-CREATE SCHEMA IF NOT EXISTS `DIARIO_WEB`; 
+CREATE SCHEMA IF NOT EXISTS `DIARIO_WEB`;
 
 CREATE TABLE IF NOT EXISTS `DIARIO_WEB`.`Usuario` (
   `nickname` VARCHAR(24) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `DIARIO_WEB`.`Noticia` (
   `actual` TINYINT(1) NOT NULL,
   PRIMARY KEY (`idNoticia`),
   INDEX `fk_Noticia_autor_idx` (`autor` ASC) VISIBLE,
-  CONSTRAINT `autor`
+  CONSTRAINT `noticia-autor_fk`
     FOREIGN KEY (`autor`)
     REFERENCES `DIARIO_WEB`.`Usuario` (`nickname`)
     ON DELETE NO ACTION
@@ -39,17 +39,17 @@ CREATE TABLE IF NOT EXISTS `DIARIO_WEB`.`Comentario` (
   INDEX `usuario_idx` (`usuario` ASC) VISIBLE,
   INDEX `noticia_idx` (`noticia` ASC) VISIBLE,
   PRIMARY KEY (`idComentario`),
-  CONSTRAINT `noticia`
+  CONSTRAINT `comentario-noticia_fk`
     FOREIGN KEY (`noticia`)
     REFERENCES `DIARIO_WEB`.`Noticia` (`idNoticia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `comentario superior`
+  CONSTRAINT `comentario-comentarioSuperior_fk`
     FOREIGN KEY (`comentarioSuperior`)
     REFERENCES `DIARIO_WEB`.`Comentario` (`idComentario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `usuario`
+  CONSTRAINT `comentario-usuario_fk`
     FOREIGN KEY (`usuario`)
     REFERENCES `DIARIO_WEB`.`Usuario` (`nickname`)
     ON DELETE NO ACTION
@@ -63,12 +63,12 @@ CREATE TABLE IF NOT EXISTS `DIARIO_WEB`.`Registro de Navegación` (
   `fechaDeModificacion` DATETIME NOT NULL,
   PRIMARY KEY (`noticia`, `usuario`),
   INDEX `usuario_idx` (`usuario` ASC) VISIBLE,
-  CONSTRAINT `noticia`
+  CONSTRAINT `registro-noticia_fk`
     FOREIGN KEY (`noticia`)
     REFERENCES `DIARIO_WEB`.`Noticia` (`idNoticia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `usuario`
+  CONSTRAINT `registro-usuario_fk`
     FOREIGN KEY (`usuario`)
     REFERENCES `DIARIO_WEB`.`Usuario` (`nickname`)
     ON DELETE NO ACTION
@@ -86,12 +86,12 @@ CREATE TABLE IF NOT EXISTS `DIARIO_WEB`.`Estado` (
   PRIMARY KEY (`idEstado`),
   INDEX `comentario_idx` (`comentario` ASC) VISIBLE,
   INDEX `usuario_idx` (`usuario` ASC) VISIBLE,
-  CONSTRAINT `comentario`
+  CONSTRAINT `estado-comentario_fk`
     FOREIGN KEY (`comentario`)
     REFERENCES `DIARIO_WEB`.`Comentario` (`idComentario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `usuario`
+  CONSTRAINT `estado-usuario_fk`
     FOREIGN KEY (`usuario`)
     REFERENCES `DIARIO_WEB`.`Usuario` (`nickname`)
     ON DELETE NO ACTION
