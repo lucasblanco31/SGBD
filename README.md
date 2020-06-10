@@ -11,3 +11,10 @@
 
 * En usuario falta poner datos actualizados los que tienen bit actual en 0
 * En noticia falta poner datos actualizados los que tienen bit actual en 0
+
+### TODO:
+
+* Agregar id usuario a usuario
+* Agregar registros de usuarios y noticias modificadas
+* Cambiar foreign keys nickname por idusuario
+* Consultas
