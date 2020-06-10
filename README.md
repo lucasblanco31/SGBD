@@ -7,8 +7,7 @@
 * "Actual" es TINYINT(1) o sea un BIT.
 
 
-###Sobre los datos
+### Sobre los datos
 
 * En usuario falta poner datos actualizados los que tienen bit actual en 0
 * En noticia falta poner datos actualizados los que tienen bit actual en 0
-* En estado falta cambiar bit actual a 0 en aquellos comentarios que tengan varios estados
