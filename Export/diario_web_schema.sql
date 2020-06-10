@@ -1,6 +1,6 @@
 -- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: DIARIO_WEB
+-- Host: 127.0.0.1    Database: diario_web
 -- ------------------------------------------------------
 -- Server version	10.4.13-MariaDB
 
@@ -16,18 +16,18 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-DROP SCHEMA IF EXISTS DIARIO_WEB;
-CREATE SCHEMA DIARIO_WEB;
-USE DIARIO_WEB;
+DROP SCHEMA IF EXISTS diario_web;
+CREATE SCHEMA diario_web;
+USE diario_web;
 
 --
--- Table structure for table `Usuario`
+-- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `Usuario`;
+DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Usuario` (
+CREATE TABLE `usuario` (
   `nickname` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nombre` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `apellido` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -40,12 +40,12 @@ CREATE TABLE `Usuario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Usuario`
+-- Dumping data for table `usuario`
 --
 
-LOCK TABLES `Usuario` WRITE;
-/*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -60,14 +60,14 @@ UNLOCK TABLES;
 -- Dump completed on 2020-06-10 13:45:05
 
 --
--- Table structure for table `Noticia`
+-- Table structure for table `noticia`
 --
 
-DROP TABLE IF EXISTS `Noticia`;
+DROP TABLE IF EXISTS `noticia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Noticia` (
-  `idNoticia` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `noticia` (
+  `idnoticia` int(11) NOT NULL AUTO_INCREMENT,
   `contenido` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `tema` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `título` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -75,19 +75,19 @@ CREATE TABLE `Noticia` (
   `fechaDeModificacion` datetime NOT NULL,
   `bajada` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `actual` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idNoticia`),
+  PRIMARY KEY (`idnoticia`),
   KEY `noticia-autor_fk` (`autor`),
-  CONSTRAINT `noticia-autor_fk` FOREIGN KEY (`autor`) REFERENCES `Usuario` (`nickname`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `noticia-autor_fk` FOREIGN KEY (`autor`) REFERENCES `usuario` (`nickname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Noticia`
+-- Dumping data for table `noticia`
 --
 
-LOCK TABLES `Noticia` WRITE;
-/*!40000 ALTER TABLE `Noticia` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Noticia` ENABLE KEYS */;
+LOCK TABLES `noticia` WRITE;
+/*!40000 ALTER TABLE `noticia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `noticia` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -102,35 +102,35 @@ UNLOCK TABLES;
 -- Dump completed on 2020-06-10 13:45:05
 
 --
--- Table structure for table `Comentario`
+-- Table structure for table `comentario`
 --
 
-DROP TABLE IF EXISTS `Comentario`;
+DROP TABLE IF EXISTS `comentario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Comentario` (
-  `idComentario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comentario` (
+  `idcomentario` int(11) NOT NULL AUTO_INCREMENT,
   `texto` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `noticia` int(11) NOT NULL,
   `comentarioSuperior` int(11) DEFAULT NULL,
   `usuario` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`idComentario`),
+  PRIMARY KEY (`idcomentario`),
   KEY `comentario-noticia_fk` (`noticia`),
   KEY `comentario-comentarioSuperior_fk` (`comentarioSuperior`),
   KEY `comentario-usuario_fk` (`usuario`),
-  CONSTRAINT `comentario-comentarioSuperior_fk` FOREIGN KEY (`comentarioSuperior`) REFERENCES `Comentario` (`idComentario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `comentario-noticia_fk` FOREIGN KEY (`noticia`) REFERENCES `Noticia` (`idNoticia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `comentario-usuario_fk` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`nickname`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `comentario-comentarioSuperior_fk` FOREIGN KEY (`comentarioSuperior`) REFERENCES `comentario` (`idcomentario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `comentario-noticia_fk` FOREIGN KEY (`noticia`) REFERENCES `noticia` (`idnoticia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `comentario-usuario_fk` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`nickname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Comentario`
+-- Dumping data for table `comentario`
 --
 
-LOCK TABLES `Comentario` WRITE;
-/*!40000 ALTER TABLE `Comentario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Comentario` ENABLE KEYS */;
+LOCK TABLES `comentario` WRITE;
+/*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -143,31 +143,31 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 --
--- Table structure for table `Registro de Navegación`
+-- Table structure for table `regnavegacion`
 --
 
-DROP TABLE IF EXISTS `Registro de Navegación`;
+DROP TABLE IF EXISTS `regnavegacion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Registro de Navegación` (
+CREATE TABLE `regnavegacion` (
   `noticia` int(11) NOT NULL,
   `usuario` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `meGusta` tinyint(1) NOT NULL,
   `fechaDeModificacion` datetime NOT NULL,
   PRIMARY KEY (`noticia`,`usuario`),
   KEY `registro-usuario_fk` (`usuario`),
-  CONSTRAINT `registro-noticia_fk` FOREIGN KEY (`noticia`) REFERENCES `Noticia` (`idNoticia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `registro-usuario_fk` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`nickname`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `registro-noticia_fk` FOREIGN KEY (`noticia`) REFERENCES `noticia` (`idnoticia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `registro-usuario_fk` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`nickname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Registro de Navegación`
+-- Dumping data for table `regnavegacion`
 --
 
-LOCK TABLES `Registro de Navegación` WRITE;
-/*!40000 ALTER TABLE `Registro de Navegación` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Registro de Navegación` ENABLE KEYS */;
+LOCK TABLES `regnavegacion` WRITE;
+/*!40000 ALTER TABLE `regnavegacion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `regnavegacion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -180,35 +180,35 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 --
--- Table structure for table `Estado`
+-- Table structure for table `estado`
 --
 
-DROP TABLE IF EXISTS `Estado`;
+DROP TABLE IF EXISTS `estado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Estado` (
-  `idEstado` int(11) NOT NULL,
+CREATE TABLE `estado` (
+  `idestado` int(11) NOT NULL,
   `comentario` int(11) NOT NULL,
   `fechaDeModificacion` datetime NOT NULL,
   `estado` enum('publicado','denunciado','en revision','invisible') COLLATE utf8mb4_unicode_ci NOT NULL,
   `observacion` varchar(24) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `usuario` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `actual` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idEstado`),
+  PRIMARY KEY (`idestado`),
   KEY `estado-comentario_fk` (`comentario`),
   KEY `estado-usuario_fk` (`usuario`),
-  CONSTRAINT `estado-comentario_fk` FOREIGN KEY (`comentario`) REFERENCES `Comentario` (`idComentario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `estado-usuario_fk` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`nickname`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `estado-comentario_fk` FOREIGN KEY (`comentario`) REFERENCES `comentario` (`idcomentario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `estado-usuario_fk` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`nickname`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Estado`
+-- Dumping data for table `estado`
 --
 
-LOCK TABLES `Estado` WRITE;
-/*!40000 ALTER TABLE `Estado` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Estado` ENABLE KEYS */;
+LOCK TABLES `estado` WRITE;
+/*!40000 ALTER TABLE `estado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `estado` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
