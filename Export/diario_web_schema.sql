@@ -70,7 +70,7 @@ CREATE TABLE `noticia` (
   `idnoticia` int(11) NOT NULL AUTO_INCREMENT,
   `contenido` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `tema` enum('politica', 'deportes', 'arte', 'tecnologia', 'actualidad') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `título` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `título` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `autor` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fechaDeModificacion` datetime NOT NULL,
   `bajada` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
