@@ -190,7 +190,7 @@ CREATE TABLE `estado` (
   `idestado` int(11) NOT NULL,
   `comentario` int(11) NOT NULL,
   `fechaDeModificacion` datetime NOT NULL,
-  `estado` enum('publicado','denunciado','en revision','invisible') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estado` enum('publicado','denunciado','revision','invisible') COLLATE utf8mb4_unicode_ci NOT NULL,
   `observacion` varchar(24) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `usuario` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `actual` tinyint(1) NOT NULL,
