@@ -35,7 +35,7 @@ CREATE TABLE `usuario_mod` (
   `nickname` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `apellido` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contraseña` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rango` int(11) NOT NULL,
+  `rango` enum('1','2','3') COLLATE utf8mb4_unicode_ci NOT NULL,
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
