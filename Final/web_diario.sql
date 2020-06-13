@@ -57,7 +57,7 @@ UPDATE usuario_actual
 SET id_usuario = new.id
 WHERE usuario_actual.idusuario_actual = new.idusuario;
 
-IF new.idusuario>(select count(*) from usuario_mod)
+IF new.idusuario>(select count(*) from usuario_actual)
 THEN
 INSERT INTO usuario_actual
 (`idusuario_actual`,
@@ -149,7 +149,7 @@ UPDATE noticia_actual
 SET id_noticia = new.id
 WHERE idnoticia_actual = new.idnoticia;
 
-IF new.idnoticia>(select count(*) from noticia_mod)
+IF new.idnoticia>(select count(*) from noticia_actual)
 THEN
 INSERT INTO noticia_actual
 (`idnoticia_actual`,
