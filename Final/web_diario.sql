@@ -33,6 +33,7 @@ CREATE TABLE `usuario_mod` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idusuario` int(11) NOT NULL,
   `nickname` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombre` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `apellido` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contraseña` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rango` enum('1','2','3') COLLATE utf8mb4_unicode_ci NOT NULL,
