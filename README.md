@@ -7,14 +7,22 @@
 * "Actual" es TINYINT(1) o sea un BIT.
 
 
-### Sobre los datos
+### FUNCIONAMIENTO:
 
-* En usuario falta poner datos actualizados los que tienen bit actual en 0
-* En noticia falta poner datos actualizados los que tienen bit actual en 0
+## Usuarios:
+
+** Se tienen dos tablas (usuario_mod y usuario_actual) las cuales tienen las siguientes funciones:
+
+* Usuario_mod tiene los registros de todos los usuarios con sus modificaciones, la clave principal es el id que se autoincrementa, el id_usuario es el id personal de cada usuario.
+
+* Usuario_actual funciona como puntero. El atributo idusuario_actual es el id personal de cada usuario y es la clave principal de cada registro. El atributo id_usuario es el puntero al id de clave principal de usuario_mod el valor que va tomando cada usuario cada vez que se modifica. 
+La funcion de usuario_actual es apuntar siempre a los ultimos datos de un usuario.
+
+## Noticias:
+
+* Funcionan de la misma manera.
 
 ### TODO:
 
-* Agregar id usuario a usuario
-* Agregar registros de usuarios y noticias modificadas
-* Cambiar foreign keys nickname por idusuario
-* Consultas
+* Agregar datos a toda la base de datos
+* Crear consultas
