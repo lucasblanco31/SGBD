@@ -141,7 +141,7 @@ CREATE TABLE `noticia_mod` (
 /*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
+DELIMITER //
 /*!50003*/ CREATE/**/ /*!50017 DEFINER=`lucasblanco31`@`localhost`*/ /*!50003*/ TRIGGER `web_diario`.`noticia_mod_AFTER_INSERT` AFTER INSERT ON `noticia_mod` FOR EACH ROW
 BEGIN
 
