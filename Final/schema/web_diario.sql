@@ -249,7 +249,7 @@ CREATE TABLE `reg_navegacion` (
   `idreg_navegacion` int(11) NOT NULL,
   `id_noticia` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `like` tinyint(1) NOT NULL,
+  `megusta` tinyint(1) NOT NULL,
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`id_noticia`,`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
