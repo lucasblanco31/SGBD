@@ -214,7 +214,7 @@ CREATE TABLE `comentario` (
   `idcomentario` int(11) NOT NULL AUTO_INCREMENT,
   `texto` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_noticia` int(11) NOT NULL,
-  `idcomentario_sup` int(11) NOT NULL,
+  `idcomentario_sup` int(11) NULL,
   `id_usuario` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`idcomentario`),
@@ -246,13 +246,13 @@ DROP TABLE IF EXISTS `reg_navegacion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reg_navegacion` (
-  `idreg_navegacion` int(11) NOT NULL,
+  `idreg_navegacion` int(11) NOT NULL AUTO_INCREMENT,
   `id_noticia` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `megusta` tinyint(1) NOT NULL,
   `fecha` datetime NOT NULL,
-  PRIMARY KEY (`id_noticia`,`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`idreg_navegacion`)
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

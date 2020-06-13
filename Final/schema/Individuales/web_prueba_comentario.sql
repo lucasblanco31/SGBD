@@ -26,7 +26,7 @@ CREATE TABLE `comentario` (
   `idcomentario` int(11) NOT NULL AUTO_INCREMENT,
   `texto` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_noticia` int(11) NOT NULL,
-  `idcomentario_sup` int(11) NOT NULL,
+  `idcomentario_sup` int(11) NULL,
   `id_usuario` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`idcomentario`),
