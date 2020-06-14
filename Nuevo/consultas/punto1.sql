@@ -1,5 +1,10 @@
-select nombre, apellido, nickname, idnoticia, reg_navegacion.id_usuario, megusta from noticia_mod, usuario_actual, usuario_mod, reg_navegacion, noticia_actual
-where noticia_mod.autor = usuario_actual.id_usuario
-and usuario_actual.id_usuario = usuario_mod.idusuario
-and reg_navegacion.id_noticia = noticia_actual.id_noticia 
-and noticia_actual.id_noticia = noticia_mod.idnoticia
+select nombre, apellido, titulo
+from usuario_actual, usuario_mod, noticia_actual, noticia_mod
+where usuario_actual.id_usuario = usuario_mod.id
+and noticia_actual.id_noticia = noticia_mod.id
+and noticia_mod.autor = usuario_actual.idusuario_actual
+
+##### PARA SABER CUANTAS LEIDAS TIENE CADA UNA
+#select id_noticia, count(*) as 'Leidas' from reg_navegacion
+#group by id_noticia
+#####
