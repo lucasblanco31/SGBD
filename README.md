@@ -22,7 +22,6 @@ La funcion de usuario_actual es apuntar siempre a los ultimos datos de un usuari
 
 * Funcionan de la misma manera.
 
-### TODO:
+## TODO:
 
-* Agregar datos a la tabla estados
 * Crear consultas

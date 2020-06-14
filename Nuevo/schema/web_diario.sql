@@ -279,7 +279,7 @@ CREATE TABLE `estado` (
   `idcomentario` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
   `estado` enum('publicado','denunciado','revision','invisible') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `observacion` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `observacion` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`idestado`),
   KEY `fk_estado_come` (`idcomentario`),
