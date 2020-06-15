@@ -43,4 +43,6 @@ La funcion de usuario_actual es apuntar siempre a los ultimos datos de un usuari
 
 ## TODO:
 
-* Crear consultas
+* Consulta 1: falta ordenar por noticia mas leida por autor
+* Consulta 2: falta cantidad de noticias por tema por autor
+* Consulta 3: completa
