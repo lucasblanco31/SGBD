@@ -43,7 +43,4 @@ La funcion de usuario_actual es apuntar siempre a los ultimos datos de un usuari
 
 ## TODO:
 
-* Consulta 2: falta cantidad de noticias por tema por autor
-
-
-* Agregar comentarios a la base de datos
+* Consulta 2: mostrar cantidad de noticias igual a cero
