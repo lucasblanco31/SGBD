@@ -23,6 +23,4 @@ group by reg_navegacion.id_usuario
 order by NotLeidas desc) lista
 on usuario_actual.idusuario_actual = lista.idUser) lista1
 on usuario_mod.id = lista1.L1U
-#having lista1.NL > 20 and lista1.CC > 10 
-#(CON ESTE PUNTO SE TERMINA LA CONSULTA)
-# HAY QUE AGREGAR COMENTARIOS PARA QUE HAYA ALGUN USER QUE HAYA HECHO MAS DE 10
+having lista1.NL > 20 and lista1.CC > 10
