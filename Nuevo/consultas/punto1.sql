@@ -7,8 +7,7 @@ cantidad maxima de lecturas poner una cualquiera de ellas
 NOMBREAUTOR APELLIDOAUTOR TITULO FECHA MEGUSTA
 */
 select prueba.nom as 'NOMBRE', prueba.ape as 'APELLIDO', prueba.ti as 'TITULO', prueba.fe as 'FECHA', max(prueba.le) as 'LEIDAS', prueba.mg as 'MEGUSTA'
-from reg_navegacion
-join
+from 
 (select autnot.idusuario as ID, nombre as nom, apellido as ape, titulo as ti, autnot.Fecha as fe, count(*) as le, sum(if(megusta=1,1,0))as mg
 from reg_navegacion 
 join 
